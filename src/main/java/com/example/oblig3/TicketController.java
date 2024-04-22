@@ -26,4 +26,14 @@ public class TicketController {
         return newMovie;
     }
 
+    @GetMapping ("/getTicket")
+    public List<Ticket> ticket() {
+        return tickets;
+    }
+
+    @GetMapping ("/deleteTicket")
+    public void deleteTicket () {
+        tickets.clear();
+    }
+
     }
