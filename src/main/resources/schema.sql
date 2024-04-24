@@ -9,3 +9,10 @@ CREATE TABLE Ticket
     mail VARCHAR(200) NOT NULL,
     PRIMARY KEY (id)
 );
+
+CREATE TABLE Movie
+(
+    id INTEGER AUTO_INCREMENT NOT NULL,
+    movie VARCHAR(200) NOT NULL,
+    PRIMARY KEY (id)
+);

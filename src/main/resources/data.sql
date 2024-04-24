@@ -1,4 +1,4 @@
-INSERT INTO Ticket (movie) VALUES ('Back To Black');
-INSERT INTO Ticket (movie) VALUES ('One Life');
-INSERT INTO Ticket (movie) VALUES ('Ibelin');
+INSERT INTO Movie (movie) VALUES ('Back To Black');
+INSERT INTO Movie (movie) VALUES ('One Life');
+INSERT INTO Movie (movie) VALUES ('Ibelin');
 
