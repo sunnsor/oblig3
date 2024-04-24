@@ -19,13 +19,13 @@ public class TicketRepository {
     }
     public List<Ticket> getTicket() {
         String sql = "SELECT * FROM Ticket ORDER BY lastname";
-        return db.query(sql, new BeanPropertyRowMapper(Ticket.class));
+        return db.query(sql, new BeanPropertyRowMapper<>(Ticket.class));
     }
 
     public Ticket getOneTicket(int id) {
-        Object[] param = new Object[0];
+        Object[] param = new Object[1];
         param[0] = id;
-        String sql = "SELECT FROM Ticket WHERE id=?";
+        String sql = "SELECT * FROM Ticket WHERE id=?";
         Ticket oneTicket = db.queryForObject(sql, param, BeanPropertyRowMapper.newInstance(Ticket.class));
         return oneTicket;
     }
@@ -47,6 +47,6 @@ public class TicketRepository {
 
     public List<Movie> getMovie() {
         String sql = "SELECT * FROM Movie";
-        return db.query(sql, new BeanPropertyRowMapper(Movie.class));
+        return db.query(sql, new BeanPropertyRowMapper<>(Movie.class));
     }
 }
