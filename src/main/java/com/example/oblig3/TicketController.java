@@ -29,6 +29,16 @@ private TicketRepository rep;
         return rep.getTicket();
     }
 
+    @PostMapping ("/changeTicket")
+    public void changeOne(Ticket inTicket) {
+        rep.changeOne(inTicket);
+    }
+
+    @GetMapping("/getOne")
+    public Ticket getOneTicket(int id) {
+        return rep.getOneTicket(id);
+    }
+
     @GetMapping ("/deleteTicket")
     public void deleteTicket () {
         rep.deleteTicket();

@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
 
 @Repository
 public class TicketRepository {
@@ -22,9 +23,16 @@ public class TicketRepository {
     }
 
     public Ticket getOneTicket(int id) {
+        Object[] param = new Object[0];
+        param[0] = id;
         String sql = "SELECT FROM Ticket WHERE id=?";
-        Ticket oneTicket = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Ticket.class), id);
+        Ticket oneTicket = db.queryForObject(sql, param, BeanPropertyRowMapper.newInstance(Ticket.class));
         return oneTicket;
+    }
+
+    public void changeOne(Ticket inTicket) {
+        String sql = "UPDATE Ticket SET movie=?, number=?, firstname=?, lastname=?, phoneNb=?, email=? WHERE id=?";
+        db.update(sql, inTicket.getMovie(), inTicket.getNumber(), inTicket.getFirstname(), inTicket.getLastname(), inTicket.getPhoneNb(), inTicket.getEmail(), inTicket.getId());
     }
 
     public void deleteOne(int id) {
