@@ -6,7 +6,7 @@ CREATE TABLE Ticket
     firstname VARCHAR(200) NOT NULL,
     lastname VARCHAR(200) NOT NULL,
     phoneNb VARCHAR(8) NOT NULL,
-    mail VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL,
     PRIMARY KEY (id)
 );
 

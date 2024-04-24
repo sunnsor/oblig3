@@ -21,21 +21,21 @@ private TicketRepository rep;
 
     @GetMapping ("/getMovie")
     public List<Movie> movies() {
-        List<Movie> newMovie = new ArrayList<>();
-        newMovie.add(new Movie("Back To Black"));
-        newMovie.add(new Movie("One Life"));
-        newMovie.add(new Movie("Ibelin"));
-        return newMovie;
+        return rep.getMovie();
     }
 
     @GetMapping ("/getTicket")
     public List<Ticket> ticket() {
-        return tickets;
+        return rep.getTicket();
     }
 
     @GetMapping ("/deleteTicket")
     public void deleteTicket () {
-        tickets.clear();
+        rep.deleteTicket();
+    }
+    @GetMapping("/deleteOne")
+        public void deleteOne(int id) {
+        rep.deleteOne(id);
     }
 
     }

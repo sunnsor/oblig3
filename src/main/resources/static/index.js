@@ -78,14 +78,15 @@ function regTicket() {
             number: $("#number").val(),
             firstname: $("#firstname").val(),
             lastname: $("#lastname").val(),
-            phone : $("#phoneNb").val(),
+            phoneNb : $("#phoneNb").val(),
             email : $("#email").val()
         };
         if (validation() === false) {
+            console.log("laste billetter")
             tickets.push(ticket);
             $.post("/saveTicket", ticket, function () {
                 getTicket();
-            })
+            });
             $("#chosenMovie").val("")
             $("#number").val("")
             $("#firstname").val("")
@@ -98,17 +99,27 @@ function regTicket() {
 function getTicket(){
     $.get("/getTicket", function (data) {
         formatTickets(data);
+        console.log("hente billetter")
     })
 }
 
 function formatTickets(tickets) {
-    let out = "<table class='table-striped'><tr>" +
-        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnummer</th><th>Epost</th></tr>"
+    let out = "<table class='table table-striped'><tr>" +
+        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnummer</th><th>Epost</th><th></th><th></th></tr>"
     for (const ticket of tickets) {
-        out += "<tr><td>" + ticket.movie + "</td><td>" + ticket.number + "</td><td>" + ticket.firstname + "</td><td>" + ticket.lastname + "</td><td>" + ticket.phone + "</td><td>" + ticket.email + "</td></tr>"
+        out += "<tr><td>" + ticket.movie + "</td><td>" + ticket.number + "</td><td>" + ticket.firstname + "</td><td>" + ticket.lastname + "</td><td>" + ticket.phoneNb + "</td><td>" + ticket.email + "</td>" +
+            "<td><a class='btn btn-primary' href='changes.html?id="+ticket.id+"'>Endre</a>" +
+            "<td><button class='btn btn-danger' onclick='deleteOne("+ticket.id+")'>Slett</button></td></tr>"
     }
     out += "</table>"
+    console.log("printe billetter")
     $("#allTickets").html(out);
+}
+function deleteOne(id) {
+    const url = "/deleteOne?id="+id;
+    $.get(url, function() {
+        getTicket();
+    })
 }
 
 function deleteTickets(){

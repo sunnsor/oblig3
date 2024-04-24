@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="changes.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Bestilling av kinobilletter</h1>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2">Velg film:</label>
+                    <div id="movie"></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2" for="number">Antall:</label>
+                    <input type="number" id="number" value="" min="1" max="9" required>
+                    <span id="wrong-number" style="color:red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2" for="firstname">Fornavn:</label>
+                    <input type="text" id="firstname" required>
+                    <span id="wrong-firstname" style="color:red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2" for="lastname">Etternavn:</label>
+                    <input type="text" id="lastname" required>
+                    <span id="wrong-lastname" style="color:red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2" for="phoneNb">Telefon:</label>
+                    <input type="tel" id="phoneNb" pattern="[0-9]{8}" maxlength="8" required>
+                    <span id="wrong-phoneNb" style="color:red;"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2" for="email">Epost:</label>
+                    <input type="email" id="email" required>
+                    <span id="wrong-email" style="color:red;"></span>
+                </div>
+                <button class="btn btn-primary" onclick="regTicket()">Kjøp billett</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
