@@ -11,8 +11,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <h1>Bestilling av kinobilletter</h1>
+            <h1>Endring av billett</h1>
             <form class="form-horizontal">
+                <input type="hidden" id="id">
                 <div class="form-group">
                     <label class="col-sm-2">Velg film:</label>
                     <div id="movie"></div>
@@ -46,7 +47,9 @@
                     <input type="email" id="email" required>
                     <span id="wrong-email" style="color:red;"></span>
                 </div>
-                <button class="btn btn-primary" onclick="regTicket()">Kjøp billett</button>
+                <div class="form-group">
+                    <input type="button" value="Endre" class="btn btn-primary" onclick="changeTicket()">
+                </div>
             </form>
         </div>
     </div>
